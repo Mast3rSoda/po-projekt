@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centrum_obsługi_kart_PO_v0_1", "Centrum_obsługi_kart_PO_v0_1\Centrum_obsługi_kart_PO_v0_1.csproj", "{A03D9A02-3B22-41F1-88A7-7DD2E8506D0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{82ACF9AA-0993-4467-8636-1E1A451BBBB2}"
+	ProjectSection(SolutionItems) = preProject
+		TextFile1.txt = TextFile1.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A03D9A02-3B22-41F1-88A7-7DD2E8506D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03D9A02-3B22-41F1-88A7-7DD2E8506D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03D9A02-3B22-41F1-88A7-7DD2E8506D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03D9A02-3B22-41F1-88A7-7DD2E8506D0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B92C758-282E-4BDA-A5E8-0A48F033D11E}
+	EndGlobalSection
+EndGlobal
