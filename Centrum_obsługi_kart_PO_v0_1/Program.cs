@@ -30,24 +30,73 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 string bank_name;
                 string firm_type0;
                
-                string typ0;
-
                 if (choice == 1 || choice == 2)
                 {
                     Console.WriteLine("Enter firm name");
                     name = Console.ReadLine();
                     Console.WriteLine("Enter firm type store/service/shipment");
                     firm_type0 = Console.ReadLine();
-                    Firma p = new Firma();
-                    p.Input_info(name, firm_type0);    
-                    if (choice == 1)
+                    if(firm_type0 =="store")
+                    {
+                        Firma_store p = new Firma_store();
+                        p.Input_info(name, firm_type0);
+                        if(choice == 1)
+                        {
+                            Firm_list.Add_firm_store(p);
+                        }  
+                        else if (choice == 2)
+                        {
+                            Firm_list.Delete_firm_store(p);
+                        }
+                    }
+                    else if(firm_type0 == "service")
+                    {
+                        Firma_service p = new Firma_service();
+
+                        p.Input_info(name, firm_type0);
+                        if (choice == 1)
+                        {
+                            Firm_list.Add_firm_service(p);
+                        }  
+                        else if(choice == 2)
+                        {
+                            Firm_list.Delete_firm_service(p);
+                        }
+                    }
+                    else if(firm_type0 == "shipment")
+                    {
+                        Firma_shipment p = new Firma_shipment();
+                        p.Input_info(name, firm_type0);
+                        if (choice == 1)
+                        {
+                            Firm_list.Add_firm_shipment(p);
+                        }   
+                        else if(choice == 2)
+                        {
+                            Firm_list.Delete_firm_shipment(p);
+                        }
+                    } 
+                   
+                    /*if (choice == 1)
                     {
                         Firm_list.Add_firm(p);
-                    }
-                    if(choice == 2)
+                        if (firm_type0 == "store")
+                        {
+                            Firm_list.Add_firm_store(p);
+                        }
+                        else if (firm_type0 == "service")
+                        {
+                            Firm_list.Add_firm_service(p);
+                        }
+                        else if (firm_type0 == "shipment")
+                        {
+
+                        }
+                    }*/
+                    /*if(choice == 2)
                     {        
                         Firm_list.Delete_firm(p);
-                    }   
+                    }*/
                 }   
                 else if (choice == 3)
                 {

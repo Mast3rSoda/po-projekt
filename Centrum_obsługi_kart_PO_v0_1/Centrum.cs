@@ -9,10 +9,16 @@ namespace Centrum_obsługi_kart_PO_v0_1
     class Firm_list
     {
         static private List<Firma> firmy;
+        static private List<Firma_store> firmy_stores;
+        static private List<Firma_service> firmy_services;
+        static private List<Firma_shipment> firmy_shipment;
 
         static Firm_list()
         {
             firmy = new List<Firma>();
+            firmy_stores = new List<Firma_store>();
+            firmy_services = new List<Firma_service>();
+            firmy_shipment = new List<Firma_shipment>();
         }
         ~Firm_list()
         {
@@ -22,14 +28,48 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             firmy.Add(p);
         }
-        static public void Delete_firm(Firma p0)
+        static public void Add_firm_store(Firma_store p)
         {
-            
-            foreach (Firma p in firmy)
+            firmy_stores.Add(p);
+        }
+        static public void Add_firm_service(Firma_service p)
+        {
+            firmy_services.Add(p);
+        }
+        static public void Add_firm_shipment(Firma_shipment p)
+        {
+            firmy_shipment.Add(p);
+        }
+        static public void Delete_firm_store(Firma_store p0)
+        {
+            foreach (Firma_store p in firmy_stores)
             { 
                 if (p.Get_name() == p0.Get_name()&&p.Get_type() == p0.Get_type())
                 {
-                    firmy.Remove(p);
+                    firmy_stores.Remove(p);
+                    break;
+                }
+            }
+        }
+        static public void Delete_firm_service(Firma_service p0)
+        {
+            foreach (Firma_service p in firmy_services)
+            {
+                if (p.Get_name() == p0.Get_name() && p.Get_type() == p0.Get_type())
+                {
+                    firmy_services.Remove(p);
+                    break;
+                }
+            }
+        }
+
+        static public void Delete_firm_shipment(Firma p0)
+        {
+            foreach (Firma_shipment p in firmy_shipment)
+            {
+                if (p.Get_name() == p0.Get_name() && p.Get_type() == p0.Get_type())
+                {
+                    firmy_shipment.Remove(p);
                     break;
                 }
             }
@@ -37,6 +77,18 @@ namespace Centrum_obsługi_kart_PO_v0_1
         static public void Display_firm_list()
         {
             foreach (Firma p in firmy)
+            {
+                p.Display_Info();
+            }
+            foreach (Firma_store p in firmy_stores)
+            {
+                p.Display_Info();
+            }
+            foreach (Firma_service p in firmy_services)
+            {
+                p.Display_Info();
+            }
+            foreach (Firma_shipment p in firmy_shipment)
             {
                 p.Display_Info();
             }
