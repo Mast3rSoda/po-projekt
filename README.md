@@ -1,9 +1,10 @@
 # po-projekt
  Projekt z PO
 14.06.2020
-Do zrobienia dodawanie/usuwanie firm w klasach pochodnych
-Do zrobienia klasa g��wna karta oraz pochodne bankomatowa/debetowa/kredytowa
-Do zrobienia klasa klient
+Gotowe dodawanie/usuwanie/przegląd firm
+Gotowe dodawanie/usuwanie/przegląd banków
+Gotowe dodawanie/usuwanie klientów w firmie(prawdopodobnie do usunięcia(nie wykorzystywane))
+
 
 
 
