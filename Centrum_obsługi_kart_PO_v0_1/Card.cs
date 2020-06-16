@@ -8,7 +8,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
 {
     class Card
     {
-        List<long> CardsList = new List<long>();
+        public List<long> CardsList = new List<long>();
         private int cardType;
         string bank_name;
         //1-credit 2-debit 3-atm
@@ -36,6 +36,10 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 CardsList.Add(cardNumber);
                 return cardNumber;
             }
+        }
+        public long getCardNumber()
+        {
+            return cardNumber;
         }
     }
 }

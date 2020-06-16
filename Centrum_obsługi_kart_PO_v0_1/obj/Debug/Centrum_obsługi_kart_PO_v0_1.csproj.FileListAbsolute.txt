@@ -5,3 +5,10 @@ C:\Users\noxyde\source\repos\Centrum_obsługi_kart_PO_v0_1\Centrum_obsługi_kart
 C:\Users\noxyde\source\repos\Centrum_obsługi_kart_PO_v0_1\Centrum_obsługi_kart_PO_v0_1\bin\Debug\Centrum_obsługi_kart_PO_v0_1.pdb
 C:\Users\noxyde\source\repos\Centrum_obsługi_kart_PO_v0_1\Centrum_obsługi_kart_PO_v0_1\obj\Debug\Centrum_obsługi_kart_PO_v0_1.exe
 C:\Users\noxyde\source\repos\Centrum_obsługi_kart_PO_v0_1\Centrum_obsługi_kart_PO_v0_1\obj\Debug\Centrum_obsługi_kart_PO_v0_1.pdb
+E:\Repos\po-projekt\Centrum_obsługi_kart_PO_v0_1\obj\Debug\Centrum_obsługi_kart_PO_v0_1.csprojAssemblyReference.cache
+E:\Repos\po-projekt\Centrum_obsługi_kart_PO_v0_1\obj\Debug\Centrum_obsługi_kart_PO_v0_1.csproj.CoreCompileInputs.cache
+E:\Repos\po-projekt\Centrum_obsługi_kart_PO_v0_1\obj\Debug\Centrum_obsługi_kart_PO_v0_1.exe
+E:\Repos\po-projekt\Centrum_obsługi_kart_PO_v0_1\obj\Debug\Centrum_obsługi_kart_PO_v0_1.pdb
+E:\Repos\po-projekt\Centrum_obsługi_kart_PO_v0_1\bin\Debug\Centrum_obsługi_kart_PO_v0_1.exe.config
+E:\Repos\po-projekt\Centrum_obsługi_kart_PO_v0_1\bin\Debug\Centrum_obsługi_kart_PO_v0_1.exe
+E:\Repos\po-projekt\Centrum_obsługi_kart_PO_v0_1\bin\Debug\Centrum_obsługi_kart_PO_v0_1.pdb
