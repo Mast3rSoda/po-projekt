@@ -29,14 +29,25 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
-        public void Remove_klient(Klient p,Bank p3)
+        /*public void Remove_klient(Klient p,Bank p3)
         {
             foreach(Klient p1 in p3.klienci)
             { 
                 if (p1.imie==p.imie)
                 {
-                    klienci.Remove(p);
-                    Console.WriteLine("usunięto " + p.imie);
+                    p3.klienci.Remove(p1);
+                    Console.WriteLine("usunięto " + p1.imie);
+                }
+            }
+        }*/
+        public void Remove_klient_form_bank(Klient x, Bank p1)
+        {
+            foreach (Klient p in p1.klienci)
+            {
+                if(p.imie==x.imie)
+                {
+                    p1.klienci.Remove(p);
+                    break;
                 }
             }
         }

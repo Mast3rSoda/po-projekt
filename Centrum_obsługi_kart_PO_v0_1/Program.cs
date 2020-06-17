@@ -157,15 +157,15 @@ namespace Centrum_obsługi_kart_PO_v0_1
                     nazwa_banku1 = Console.ReadLine();
                     nazwa_klienta1 = Console.ReadLine();
                     Klient p = new Klient(nazwa_klienta1);
+                    Bank p0 = new Bank(nazwa_banku1);
                     foreach(Bank p1 in Bank_list.banki)
                     {
-                        if(p1.bank_name==nazwa_banku1)
-                        {     
-                            
-                            Bank_list.Remove_klient_form_bank(p, p1);
+                        if(p1.bank_name==p0.bank_name)
+                        {
+                            Console.WriteLine("siema");
+                            p1.Remove_klient_form_bank(p, p1);
                         }
-                    }
-                    
+                    } 
                 }
                 else if(choice == 9)
                 {

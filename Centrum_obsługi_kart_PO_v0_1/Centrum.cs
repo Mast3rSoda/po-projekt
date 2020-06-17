@@ -106,17 +106,6 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {   
                     p0.Add_klient(p,p0);
         }
-        static public void Remove_klient_form_bank(Klient p,Bank p0)
-        {
-            foreach(Klient p1 in p0.klienci)
-            {
-                if (p1.imie==p.imie)
-                {
-                    p0.Remove_klient(p,p0);
-                }
-            }
-        }
-       
         static public void Add_bank(Bank p)
         {
             banki.Add(p);
