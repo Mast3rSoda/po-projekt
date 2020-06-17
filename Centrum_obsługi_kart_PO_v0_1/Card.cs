@@ -8,8 +8,8 @@ namespace Centrum_obsługi_kart_PO_v0_1
 {
     class Card
     {
-        public List<long> CardsList = new List<long>();
-        public int cardType;
+        static public List<long> CardsList = new List<long>();
+        public string cardType;
         public string bank_name;
         public string owner;
         //1-credit 2-debit 3-atm
@@ -18,7 +18,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             return bank_name;
         }
-        public int Get_cardType()
+        public string Get_cardType()
         {
             return cardType;
         }
