@@ -8,9 +8,45 @@ namespace Centrum_obsługi_kart_PO_v0_1
 {
     class Bank
     {
-        private string bank_name;
-        private int bank_id=0;
+        public string bank_name;
+        private int bank_id = 0;
+        //private static int bank_id_helper;
+        //private static int bank_counter = 0;
+        static public List<Klient> klienci;
 
+        public Bank()
+        {
+            klienci = new List<Klient>();
+        }
+        public void Add_klient(Klient p,Bank p0)
+        {
+            foreach (Bank p1 in Bank_list.banki)
+            {
+                if(p1.bank_name==p0.bank_name)
+                {
+                    klienci.Add(p);
+                }
+                
+            }
+            
+        }
+        public void Remove_klient(Klient p)
+        {
+            foreach(Klient p1 in klienci)
+            { 
+                if (p1.imie==p.imie)
+                {
+                    klienci.Remove(p);
+                }
+            }
+        }
+        public void View_all_klients()
+        {
+            foreach(Klient p in klienci)
+            {
+                Console.WriteLine(p.imie);
+            }
+        }
         public void Input_info(string nazwa)
         {
             bank_name = nazwa;
@@ -29,5 +65,17 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             return bank_id;
         }
+        static public bool Authorize_transaction(Card karta, string data, double kwota, string card_owner, int card_type)
+        {
+            if(card_type==1||card_type==2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
+
 }

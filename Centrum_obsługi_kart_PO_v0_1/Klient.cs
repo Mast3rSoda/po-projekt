@@ -34,9 +34,9 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
-
-
-        public string Get_name() => imie;
-
+        public string Get_name()
+        {
+            return imie;
+        }
     }
 }

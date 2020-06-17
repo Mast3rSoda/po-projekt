@@ -9,8 +9,9 @@ namespace Centrum_obsługi_kart_PO_v0_1
     class Card
     {
         public List<long> CardsList = new List<long>();
-        private int cardType;
-        string bank_name;
+        public int cardType;
+        public string bank_name;
+        public string owner;
         //1-credit 2-debit 3-atm
         public long cardNumber;
         public string Get_bankName()

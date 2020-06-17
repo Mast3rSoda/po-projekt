@@ -46,6 +46,7 @@
     <Compile Include="Card.cs" />
     <Compile Include="Bank.cs" />
     <Compile Include="Centrum.cs" />
+    <Compile Include="Archive.cs" />
     <Compile Include="Firma.cs" />
     <Compile Include="Klient.cs" />
     <Compile Include="Program.cs" />
@@ -53,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="archiwum_transakcji.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -49,6 +50,21 @@ namespace Centrum_obsługi_kart_PO_v0_1
                     klienci_firm.Remove(p0);
                 }
             }
+        }
+        static long numer_karty;
+        static string wlasciciel_karty;
+        static DateTime data_transakcji=DateTime.Today;
+        static string data_transakcji_tekst;
+        static int card_type;
+        static double kwota_transakcji;
+        static public void Require_authorization(Card karta,double kwota)
+        {
+            numer_karty = karta.cardNumber;
+            wlasciciel_karty = karta.owner;
+            data_transakcji_tekst = data_transakcji.ToString("d");
+            kwota_transakcji = kwota;
+            card_type = karta.cardType;
+            Centrum.Get_authorization(karta,data_transakcji_tekst,kwota_transakcji,wlasciciel_karty,card_type);
         }
         
 

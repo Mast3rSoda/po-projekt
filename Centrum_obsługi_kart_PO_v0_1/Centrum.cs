@@ -96,19 +96,32 @@ namespace Centrum_obsługi_kart_PO_v0_1
     }
     class Bank_list
     {
+        //siema
         static public List<Bank> banki;
-
-        static Bank_list()
+        public Bank_List()
         {
             banki = new List<Bank>();
         }
-        ~Bank_list()
-        {
-
+        static public void Add_klient_to_bank(Klient p,Bank p0)
+        {   
+                    p0.Add_klient(p,p0); 
         }
+        static public void Remove_klient_form_bank(Klient p,Bank p0)
+        {
+            foreach(Klient p1 in Bank.klienci)
+            {
+                if (p1.imie==p.imie)
+                {
+                    p0.Remove_klient(p);
+                }
+            }
+        }
+       
         static public void Add_bank(Bank p)
         {
-            banki.Add(p);
+            Bank p1 = new Bank();
+            banki.Add(p1);
+           
         }
         static public void Delete_bank(Bank p0)
         {
@@ -122,6 +135,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
+
         static public void Display_bank_list()
         {
             foreach (Bank p in banki)
@@ -129,5 +143,15 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 p.Display_Info();
             }
         }
+    }
+    class Centrum
+    { 
+        static public void Get_authorization(Card karta,string data,double kwota,string card_owner,int card_type)
+        {
+            Archive.Save_to_archive(karta, data, kwota, card_owner, card_type, Bank.Authorize_transaction(karta,data,kwota,card_owner,card_type));
+            
+        }
+     
+
     }
 }

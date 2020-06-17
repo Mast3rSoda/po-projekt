@@ -22,6 +22,11 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 Console.WriteLine("4 - dodaj bank");
                 Console.WriteLine("5 - usuń bank");
                 Console.WriteLine("6 - przeglądaj banki");
+                Console.WriteLine("7 - dodaj klienta do banku");
+                Console.WriteLine("8 - usuń klienta z banku");
+                Console.WriteLine("9 - przeglądaj klientow banku");
+                Console.WriteLine("x - manualne dodawanie transakcji");
+
 
                 Console.WriteLine("0 - exit");
                 choice = Convert.ToByte(Console.ReadLine());
@@ -29,7 +34,9 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 string name;
                 string bank_name;
                 string firm_type0;
-               
+                string nazwa_banku1;
+                string nazwa_klienta1;
+
                 if (choice == 1 || choice == 2)
                 {
                     Console.WriteLine("Enter firm name");
@@ -75,8 +82,8 @@ namespace Centrum_obsługi_kart_PO_v0_1
                         {
                             Firm_list.Delete_firm_shipment(p);
                         }
-                    } 
-                   
+                    }
+
                     /*if (choice == 1)
                     {
                         Firm_list.Add_firm(p);
@@ -97,6 +104,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                     {        
                         Firm_list.Delete_firm(p);
                     }*/
+                    Console.Clear();
                 }   
                 else if (choice == 3)
                 {
@@ -116,15 +124,69 @@ namespace Centrum_obsługi_kart_PO_v0_1
                     {
                         Bank_list.Delete_bank(p);
                     }
+                    Console.Clear();
                 }
                 else if(choice == 6)
                 {
                     Bank_list.Display_bank_list();
                 }
+                else if(choice == 7)
+                {
+                    Console.WriteLine("Podaj nazwe banku");
+                    Console.WriteLine("Podaj imie/nazwisko klienta banku");
+                    
+                    
+                    nazwa_banku1=Console.ReadLine();
+                    nazwa_klienta1=Console.ReadLine();
+                    Klient p = new Klient(nazwa_klienta1);
+                    foreach(Bank p1 in Bank_list.banki)
+                    {
+                        if(p1.bank_name==nazwa_banku1)
+                        {   
+                            Bank_list.Add_klient_to_bank(p, p1);
+                        }
+                    }
+                    
+                }
+                else if(choice == 8)
+                {
+                    Console.WriteLine("podaj nazwe banku");
+                    Console.WriteLine("podaj nazwe klienta");
+                    nazwa_banku1 = Console.ReadLine();
+                    nazwa_klienta1 = Console.ReadLine();
+                    Klient p = new Klient(nazwa_klienta1);
+                    foreach(Bank p1 in Bank_list.banki)
+                    {
+                        if(p1.bank_name==nazwa_banku1)
+                        {     
+                            Bank_list.Remove_klient_form_bank(p, p1);
+                        }
+                    }
+                    
+                }
+                else if(choice == 9)
+                {
+                    Console.WriteLine("podaj nazwe banku");
+                    nazwa_banku1 = Console.ReadLine();
+                    foreach (Bank p1 in Bank_list.banki)
+                    {
+                        if (p1.bank_name == nazwa_banku1)
+                        {
+                            p1.View_all_klients();
+                        }
+                    }
+
+                }
+                else if(choice == 100)
+                {
+                    Console.WriteLine("");
+
+                }
                 else
                 {
                     Console.WriteLine("wrong input");
                 }
+                
 
             } while (choice != 0);
         }
