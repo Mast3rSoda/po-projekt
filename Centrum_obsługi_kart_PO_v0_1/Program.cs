@@ -36,6 +36,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 string firm_type0;
                 string nazwa_banku1;
                 string nazwa_klienta1;
+                
 
                 if (choice == 1 || choice == 2)
                 {
@@ -114,8 +115,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 {
                     Console.WriteLine("Enter bank name");
                     bank_name = Console.ReadLine();
-                    Bank p = new Bank();
-                    p.Input_info(bank_name);
+                    Bank p = new Bank(bank_name);  
                     if (choice == 4)
                     {
                         Bank_list.Add_bank(p);
@@ -139,11 +139,13 @@ namespace Centrum_obsługi_kart_PO_v0_1
                     nazwa_banku1=Console.ReadLine();
                     nazwa_klienta1=Console.ReadLine();
                     Klient p = new Klient(nazwa_klienta1);
+                    Bank p0 = new Bank(nazwa_banku1);
                     foreach(Bank p1 in Bank_list.banki)
                     {
-                        if(p1.bank_name==nazwa_banku1)
-                        {   
-                            Bank_list.Add_klient_to_bank(p, p1);
+                        if(p1.bank_name==p0.bank_name)
+                        {
+                            //Bank_list.Add_klient_to_bank(p, p0); 
+                            Bank.klienci.Add(p);
                         }
                     }
                     
@@ -168,11 +170,13 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 {
                     Console.WriteLine("podaj nazwe banku");
                     nazwa_banku1 = Console.ReadLine();
+                    Bank p0 = new Bank(nazwa_banku1);
                     foreach (Bank p1 in Bank_list.banki)
                     {
-                        if (p1.bank_name == nazwa_banku1)
+                        if (p1.bank_name == p0.bank_name)
                         {
-                            p1.View_all_klients();
+                            Console.WriteLine("siema");
+                            p1.View_all_klients(p1);
                         }
                     }
 

@@ -98,13 +98,13 @@ namespace Centrum_obsługi_kart_PO_v0_1
     {
         //siema
         static public List<Bank> banki;
-        public Bank_List()
+        static Bank_list()
         {
             banki = new List<Bank>();
         }
         static public void Add_klient_to_bank(Klient p,Bank p0)
         {   
-                    p0.Add_klient(p,p0); 
+                    p0.Add_klient(p,p0);
         }
         static public void Remove_klient_form_bank(Klient p,Bank p0)
         {
@@ -119,9 +119,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
        
         static public void Add_bank(Bank p)
         {
-            Bank p1 = new Bank();
-            banki.Add(p1);
-           
+            banki.Add(p);
         }
         static public void Delete_bank(Bank p0)
         {

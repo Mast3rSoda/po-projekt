@@ -14,8 +14,9 @@ namespace Centrum_obsługi_kart_PO_v0_1
         //private static int bank_counter = 0;
         static public List<Klient> klienci;
 
-        public Bank()
+        public Bank(string bank_name)
         {
+            this.bank_name = bank_name;
             klienci = new List<Klient>();
         }
         public void Add_klient(Klient p,Bank p0)
@@ -40,9 +41,21 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
-        public void View_all_klients()
+        public static List<Klient> Get_klient_list(Bank p1)
         {
-            foreach(Klient p in klienci)
+            foreach(Bank p in Bank_list.banki)
+            {
+                if(p.bank_name==p1.bank_name)
+                {
+                    return Bank.klienci;
+                }
+                
+            }
+            return 0;
+        }
+        public void View_all_klients(Bank p1)
+        {
+            foreach(Klient p in Get_klient_list(p1))
             {
                 Console.WriteLine(p.imie);
             }
