@@ -13,7 +13,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
     {
         static void Main(string[] args)
         {
-            int choice = 1;
+            int choice;
             do
             {
                 Console.WriteLine("1 - dodaj firme");
@@ -145,7 +145,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                         if(p1.bank_name==p0.bank_name)
                         {
                             //Bank_list.Add_klient_to_bank(p, p0); 
-                            Bank.klienci.Add(p);
+                            p1.klienci.Add(p);
                         }
                     }
                     
@@ -161,6 +161,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                     {
                         if(p1.bank_name==nazwa_banku1)
                         {     
+                            
                             Bank_list.Remove_klient_form_bank(p, p1);
                         }
                     }

@@ -12,7 +12,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         private int bank_id = 0;
         //private static int bank_id_helper;
         //private static int bank_counter = 0;
-        static public List<Klient> klienci;
+        public List<Klient> klienci;
 
         public Bank(string bank_name)
         {
@@ -27,35 +27,22 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 {
                     klienci.Add(p);
                 }
-                
             }
-            
         }
-        public void Remove_klient(Klient p)
+        public void Remove_klient(Klient p,Bank p3)
         {
-            foreach(Klient p1 in klienci)
+            foreach(Klient p1 in p3.klienci)
             { 
                 if (p1.imie==p.imie)
                 {
                     klienci.Remove(p);
+                    Console.WriteLine("usunięto " + p.imie);
                 }
             }
-        }
-        public static List<Klient> Get_klient_list(Bank p1)
-        {
-            foreach(Bank p in Bank_list.banki)
-            {
-                if(p.bank_name==p1.bank_name)
-                {
-                    return Bank.klienci;
-                }
-                
-            }
-            return 0;
         }
         public void View_all_klients(Bank p1)
         {
-            foreach(Klient p in Get_klient_list(p1))
+            foreach(Klient p in p1.klienci)
             {
                 Console.WriteLine(p.imie);
             }
