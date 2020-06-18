@@ -133,7 +133,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
     }
     class Centrum
     { 
-        static public void Get_authorization(Card karta,string data,double kwota,string card_owner,int card_type)
+        static public void Get_authorization(Card karta,string data,double kwota,string card_owner,string card_type)
         {
             Archive.Save_to_archive(karta, data, kwota, card_owner, card_type, Bank.Authorize_transaction(karta,data,kwota,card_owner,card_type));
             

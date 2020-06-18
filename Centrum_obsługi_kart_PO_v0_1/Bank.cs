@@ -76,9 +76,9 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             return bank_id;
         }
-        static public bool Authorize_transaction(Card karta, string data, double kwota, string card_owner, int card_type)
+        static public bool Authorize_transaction(Card karta, string data, double kwota, string card_owner, string card_type)
         {
-            if(card_type==1||card_type==2)
+            if(card_type=="deb"||card_type=="cred")
             {
                 return true;
             }
@@ -86,6 +86,28 @@ namespace Centrum_obsługi_kart_PO_v0_1
             {
                 return false;
             }
+        }
+        public void findClient(Klient p2, Bank p1, string typKarty)
+        {
+            foreach(Klient p in p1.klienci)
+                if(p.imie == p2.imie)
+                {
+                    Card card = new Card();
+                    p.dodajKarte(card,p.imie,p1.bank_name, typKarty);
+
+                }
+
+            
+
+        }
+        public void checkCards(Klient p2, Bank p1)
+        {
+            foreach(Klient p in p1.klienci)
+                if(p.imie == p2.imie)
+                {
+                    Card card = new Card();
+                    p.przegladajKarty(card);
+                }
         }
     }
 

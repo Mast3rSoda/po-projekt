@@ -55,7 +55,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         static string wlasciciel_karty;
         static DateTime data_transakcji=DateTime.Today;
         static string data_transakcji_tekst;
-        static int card_type;
+        static string card_type;
         static double kwota_transakcji;
         static public void Require_authorization(Card karta,double kwota)
         {

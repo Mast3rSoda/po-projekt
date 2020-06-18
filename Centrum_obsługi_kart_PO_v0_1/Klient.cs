@@ -38,5 +38,27 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             return imie;
         }
+        public void dodajKarte(Card p3,string imie, string bank, string typKarty)
+        {
+            p3.bank_name = bank;
+            p3.cardNumber = p3.Create_cardNumber();
+            p3.owner = imie;
+            p3.cardType = typKarty;
+            Console.WriteLine(p3.bank_name);
+            Console.WriteLine(p3.owner);
+            Console.WriteLine(p3.cardNumber);
+            Console.WriteLine(p3.cardType);
+            addCardToCollection(p3);
+        }
+        public void przegladajKarty(Card p3)
+        {
+            foreach(Card card in kolekcja_kart)
+            {
+                Console.WriteLine(card.bank_name);
+                Console.WriteLine(card.owner);
+                Console.WriteLine(card.cardNumber);
+                Console.WriteLine(card.cardType);
+            }
+        }
     }
 }
