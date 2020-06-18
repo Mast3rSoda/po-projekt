@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel.Design;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
     {
         static void Main(string[] args)
         {
+            File.WriteAllText("archiwum_transakcji.txt", "");
             int choice;
             do
             {
@@ -29,6 +31,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 Console.WriteLine("10 - dodaj karte do klienta");
                 Console.WriteLine("11 - przegladaj karty klienta");
                 Console.WriteLine("12 - manualne dodawanie transakcji");
+                Console.WriteLine("13 - przeszukaj baze danych");
 
 
                 Console.WriteLine("0 - exit");
@@ -52,7 +55,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                     firm_type0 = Console.ReadLine();
                     if (firm_type0 == "store")
                     {
-                        Firma_store p = new Firma_store(name,firm_type0);
+                        Firma_store p = new Firma_store(name, firm_type0);
                         //p.Input_info(name, firm_type0);
                         if (choice == 1)
                         {
@@ -137,7 +140,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 else if (choice == 7)
                 {
                     Console.WriteLine("Podaj nazwe banku");
-                    Console.WriteLine("Podaj imie/nazwisko klienta banku");
+                    Console.WriteLine("Podaj nazwisko klienta banku");
 
 
                     nazwa_banku1 = Console.ReadLine();
@@ -232,29 +235,23 @@ namespace Centrum_obsługi_kart_PO_v0_1
                     Console.WriteLine("podaj kwote");
 
                     long numer_karty;
-                    string card_Type_x1;
-                    string bank_name_x1;
-                    string card_owner_x1;
 
                     nazwa_firmy1 = Console.ReadLine();
                     typ_firmy = Console.ReadLine();
                     numer_karty = Convert.ToInt64(Console.ReadLine());
                     kwota_transakcji = Convert.ToDouble(Console.ReadLine());
-                    Firma p = new Firma(nazwa_firmy1,typ_firmy);
+                    Firma p = new Firma(nazwa_firmy1, typ_firmy);
                     Card karta_y1 = new Card();
                     foreach (Bank bank_x1 in Bank_list.banki)
                     {
-                        Console.WriteLine("test 0010");
+                        
                         foreach (Klient klient_x1 in bank_x1.klienci)
                         {
-                            Console.WriteLine("test 0011");
                             foreach (Card karta_x1 in klient_x1.kolekcja_kart)
                             {
-                                Console.WriteLine("test 0012");
-                                if (karta_x1.cardNumber==numer_karty)
+                                if (karta_x1.cardNumber == numer_karty)
                                 {
-                                    Console.WriteLine("test 0013");
-                                    
+
                                     karta_y1.bank_name = karta_x1.bank_name;
                                     karta_y1.cardNumber = karta_x1.cardNumber;
                                     karta_y1.cardType = karta_x1.cardType;
@@ -265,33 +262,45 @@ namespace Centrum_obsługi_kart_PO_v0_1
                         }
                     }
 
-                    if (typ_firmy=="store")
+                    if (typ_firmy == "store")
                     {
                         foreach (Firma_store firma_sklep in Firm_list.firmy_stores)
                         {
-                            if (firma_sklep.firm_name==p.firm_name)
+                            if (firma_sklep.firm_name == p.firm_name)
                             {
                                 firma_sklep.Require_authorization(karta_y1, kwota_transakcji);
                             }
                         }
 
                     }
-                    else if(typ_firmy=="service")
+                    else if (typ_firmy == "service")
                     {
                         foreach (Firma_service firma_service in Firm_list.firmy_services)
                         {
-
+                            if (firma_service.firm_name == p.firm_name)
+                            {
+                                firma_service.Require_authorization(karta_y1, kwota_transakcji);
+                            }
                         }
 
                     }
-                    else if(typ_firmy=="shipment")
+                    else if (typ_firmy == "shipment")
                     {
                         foreach (Firma_shipment firma_shipment in Firm_list.firmy_shipment)
                         {
-
+                            if (firma_shipment.firm_name == p.firm_name)
+                            {
+                                firma_shipment.Require_authorization(karta_y1, kwota_transakcji);
+                            }
                         }
 
                     }
+
+                }
+                else if (choice == 13)
+                {
+
+
                 }
                 else
                 {
