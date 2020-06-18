@@ -8,11 +8,13 @@ namespace Centrum_obsługi_kart_PO_v0_1
 {
     class Firm_list
     {
+        //listy przechowujace firmy
         static public List<Firma> firmy;
         static public List<Firma_store> firmy_stores;
         static public List<Firma_service> firmy_services;
         static public List<Firma_shipment> firmy_shipment;
 
+        //konstruktor
         static Firm_list()
         {
             firmy = new List<Firma>();
@@ -20,10 +22,12 @@ namespace Centrum_obsługi_kart_PO_v0_1
             firmy_services = new List<Firma_service>();
             firmy_shipment = new List<Firma_shipment>();
         }
+        //destruktor
         ~Firm_list()
         {
 
         }
+        //funkcje dodajace firme p do odpowieniej listy z firmami
         static public void Add_firm(Firma p)
         {
             firmy.Add(p);
@@ -40,6 +44,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             firmy_shipment.Add(p);
         }
+        //funkcje usuwajace firme p0 z listy
         static public void Delete_firm_store(Firma_store p0)
         {
             foreach (Firma_store p in firmy_stores)
@@ -62,7 +67,6 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
-
         static public void Delete_firm_shipment(Firma p0)
         {
             foreach (Firma_shipment p in firmy_shipment)
@@ -74,6 +78,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
+        //funkcja wyswietlajaca wszystkie firmy
         static public void Display_firm_list()
         {
             foreach (Firma p in firmy)
@@ -96,23 +101,25 @@ namespace Centrum_obsługi_kart_PO_v0_1
     }
     class Bank_list
     {
-        //siema
+        //lista bankow
         static public List<Bank> banki;
         static Bank_list()
         {
             banki = new List<Bank>();
         }
+        //funkcja przekazujaca klienta p do dodania banku p0
         static public void Add_klient_to_bank(Klient p,Bank p0)
         {   
-                    p0.Add_klient(p,p0);
+            p0.Add_klient(p,p0);
         }
+        //funkcja dodajaca bank p do listy
         static public void Add_bank(Bank p)
         {
             banki.Add(p);
         }
+        //funkcja usuwajaca bank p0 z listy
         static public void Delete_bank(Bank p0)
         {
-
             foreach (Bank p in banki)
             {
                 if (p.Get_name() == p0.Get_name())
@@ -122,7 +129,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
-
+        //funkcja wypisujaca wszystkie banki w liscie bankow
         static public void Display_bank_list()
         {
             foreach (Bank p in banki)
@@ -133,12 +140,10 @@ namespace Centrum_obsługi_kart_PO_v0_1
     }
     class Centrum
     { 
+        //funkcja obsługująca (przekazująca/zapisująca) archiwum
         static public void Get_authorization(Card karta,string data,double kwota,string card_owner,string card_type)
         {
             Archive.Save_to_archive(karta, data, kwota, card_owner, card_type, Bank.Authorize_transaction(karta,data,kwota,card_owner,card_type));
-            
         }
-     
-
     }
 }

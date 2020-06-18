@@ -18,6 +18,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         string szukane_warunki;
         int counter = 0;
 
+        //zmienne przechowujące dane z archiwum
         string data;
         string numer_karty;
         string kwota_tran;
@@ -28,6 +29,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         string wpisywany_tekst;
         string warunek;
 
+        //zmienne przechowujące warunki wpisane przez uzytkownika
         string bank_x;
         string numer_karty_x;
         string owner_x;
@@ -35,50 +37,42 @@ namespace Centrum_obsługi_kart_PO_v0_1
         string data_x;
         int counter_x = 0;
 
-
+        //funkcja zapisujące do Archiwum
         static public void Save_to_archive(Card karta, string data, double kwota, string card_owner, string card_type, bool resault)
         {
             transakcja_tekst = data+" "+karta.cardNumber+" "+kwota+" "+card_type+" "+card_owner+" "+karta.bank_name+" "+resault;
             File.AppendAllText("archiwum_transakcji.txt", transakcja_tekst +"\r\n");
             Console.WriteLine("DATA - "+data + " Numer Karty - " + karta.cardNumber + " Kwota - " + kwota + " Typ karty - " + card_type + " Właściciel karty - " + card_owner + " Nazwa Banku - " + karta.bank_name + " Rezultat - " + resault);
         }
-        public void search_archive()
-        {
-
-
-        }
+        //funkcja przeszukująca archiwum
         public void Search_archive_base()
         {
             Lines = File.ReadAllLines("archiwum_transakcji.txt");
             Console.WriteLine("Przeszukiwanie OR/AND");
+            //wpisanie warunku OR/AND
             warunek = Console.ReadLine();
+            //wpisanie walorów które chcemy filtrować
             Console.WriteLine("Wpisz szukane walory w formacie BANK NUMERKARTY WŁAŚCICIEL KWOTA DATA jeżeli nie ma warunku wstaw null");
             wpisywany_tekst = Console.ReadLine();
             Split_sentence_into_words(wpisywany_tekst);
             foreach (string line in Lines)
             {
+                //countery do dobrego przepisania zmiennych ze stringów
                 counter_x = 0;
-                counter = 0;
-                //Console.WriteLine("XXX");
-                //Console.WriteLine(line);
-                //Console.WriteLine("XXX");
+                counter = 0; 
                 Split_into_words(line);
                 Split_sentence_into_words(wpisywany_tekst);
+                //warunek or
                 if (warunek=="OR")
                 {
-                    //Console.WriteLine(bank_name + " " + numer_karty + " " + card_owner + " " + kwota_tran + " " + data);
-                    //Console.WriteLine(bank_x + " " + numer_karty_x + " " + owner_x + " " + kwota_x + " " + data_x);
                     if (bank_x==bank_name||numer_karty_x==numer_karty||owner_x==card_owner||kwota_x==kwota_tran||data_x==data)
                     {
-                        //Console.WriteLine(" ");
                         Console.WriteLine(line);
-                        //Console.WriteLine(" ");
                     }
                 }
+                //warunek and
                 else if(warunek=="AND")
-                {
-                    //Console.WriteLine("PODSTAWA "+bank_name + " " + numer_karty + " " + card_owner + " " + kwota_tran + " " + data);
-                    //Console.WriteLine("WZÓR "+bank_x + " " + numer_karty_x + " " + owner_x + " " + kwota_x + " " + data_x);
+                { 
                     if (bank_x == bank_name && numer_karty_x == numer_karty && owner_x == card_owner && kwota_x == kwota_tran && data_x == data)
                     {
                         Console.WriteLine(line);
@@ -87,6 +81,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
             }
 
         }
+        //funkcja do wyodrebnienie slow z warunku
         public void Split_sentence_into_words(string sentence)
         {
             string[] words = sentence.Split(' ');
@@ -179,6 +174,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
+        //funkcja do wyodrebnienia
         private void Split_into_words(string line)
         {
             string[] words = line.Split(' ');

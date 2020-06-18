@@ -11,18 +11,18 @@ namespace Centrum_obsługi_kart_PO_v0_1
     {
         public string imie;
         public List<Card> kolekcja_kart;
-
+        //konstruktor klasy klient
         public Klient(string imie)
         {
             this.imie = imie;
             kolekcja_kart = new List<Card>();
         }
-
+        //funkcja dodająca karta card to kolekcji karta klienta
         public void addCardToCollection(Card card)
         {
             kolekcja_kart.Add(card);
         }
-
+        //funkcja usuwająca karta card z kolekcji kart klienta
         public void removeFromCollection(Card card)
         {
             foreach (Card card1 in kolekcja_kart)
@@ -38,6 +38,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             return imie;
         }
+        //funkcja dodająca karta p3 do klienta na podstawie imienia banku i typu karty
         public void dodajKarte(Card p3,string imie, string bank, string typKarty)
         {
             p3.bank_name = bank;
@@ -50,6 +51,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
             Console.WriteLine(p3.cardType);
             addCardToCollection(p3);
         }
+        //funkcja wyświetlająca karty w kolekcji klienta
         public void przegladajKarty(Card p3)
         {
             foreach(Card card in kolekcja_kart)

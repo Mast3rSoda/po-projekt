@@ -10,15 +10,14 @@ namespace Centrum_obsługi_kart_PO_v0_1
     {
         public string bank_name;
         private int bank_id = 0;
-        //private static int bank_id_helper;
-        //private static int bank_counter = 0;
         public List<Klient> klienci;
-
+        //konstruktor klasy bank
         public Bank(string bank_name)
         {
             this.bank_name = bank_name;
             klienci = new List<Klient>();
         }
+        //funkcja dodajaca klianta p do banku p0
         public void Add_klient(Klient p,Bank p0)
         {
             foreach (Bank p1 in Bank_list.banki)
@@ -29,17 +28,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
-        /*public void Remove_klient(Klient p,Bank p3)
-        {
-            foreach(Klient p1 in p3.klienci)
-            { 
-                if (p1.imie==p.imie)
-                {
-                    p3.klienci.Remove(p1);
-                    Console.WriteLine("usunięto " + p1.imie);
-                }
-            }
-        }*/
+        //funkcja usuwajace klienta x z banku p1
         public void Remove_klient_form_bank(Klient x, Bank p1)
         {
             foreach (Klient p in p1.klienci)
@@ -51,6 +40,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
             }
         }
+        //funkcja wyswietlajace imiona klientow banku p1
         public void View_all_klients(Bank p1)
         {
             foreach(Klient p in p1.klienci)
@@ -58,11 +48,13 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 Console.WriteLine(p.imie);
             }
         }
+        //funkcja do przypisania wartosci banku
         public void Input_info(string nazwa)
         {
             bank_name = nazwa;
             bank_id = Bank_list.banki.Count;
         }
+        //funkcja wyswietlajaca dane banku
         public void Display_Info()
         {
             Console.WriteLine($"Bank name : {bank_name}");
@@ -76,6 +68,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             return bank_id;
         }
+        //funkcja autoryzujaca transakcje na podstawie typu karty
         static public bool Authorize_transaction(Card karta, string data, double kwota, string card_owner, string card_type)
         {
             if(card_type=="deb"||card_type=="cred")
@@ -87,6 +80,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 return false;
             }
         }
+        //funkcja dodajace karta card to klienta p
         public void findClient(Klient p2, Bank p1, string typKarty)
         {
             foreach(Klient p in p1.klienci)
@@ -94,12 +88,9 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 {
                     Card card = new Card();
                     p.dodajKarte(card,p.imie,p1.bank_name, typKarty);
-
                 }
-
-            
-
         }
+        //funkcja wyswietlajaca karty klienta p2 ktory jest klientem banku p1
         public void checkCards(Klient p2, Bank p1)
         {
             foreach(Klient p in p1.klienci)
