@@ -84,7 +84,6 @@ namespace Centrum_obsługi_kart_PO_v0_1
                             Firm_list.Delete_firm_shipment(p);
                         }
                     }
-
                     /*if (choice == 1)
                     {
                         Firm_list.Add_firm(p);
