@@ -299,8 +299,8 @@ namespace Centrum_obsługi_kart_PO_v0_1
                 }
                 else if (choice == 13)
                 {
-
-
+                    Archive p = new Archive();
+                    p.Search_archive_base();
                 }
                 else
                 {
