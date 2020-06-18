@@ -32,11 +32,13 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             return firm_type;
         }
-        static Firma()
+        public Firma(string firm_name,string firm_type)
         {
+            this.firm_name = firm_name;
+            this.firm_type = firm_type;
             klienci_firm = new List<Klient>();
         }
-        
+
         static public void Add_klient_to_firm(Klient p0, Firma p)
         {
             klienci_firm.Add(p0);
@@ -57,7 +59,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         static string data_transakcji_tekst;
         static string card_type;
         static double kwota_transakcji;
-        static public void Require_authorization(Card karta,double kwota)
+        public void Require_authorization(Card karta,double kwota)
         {
             numer_karty = karta.cardNumber;
             wlasciciel_karty = karta.owner;
@@ -71,16 +73,25 @@ namespace Centrum_obsługi_kart_PO_v0_1
 
 
     }
-    class Firma_store : Firma
-    {
-        
-    } 
-    class Firma_service : Firma
-    {
+    class Firma_store : Firma 
+    { 
+        public Firma_store(string firm_name,string firm_type) : base (firm_name,firm_type)
+        {
 
+        }
+    }
+    class Firma_service : Firma 
+    {
+        public Firma_service(string firm_name, string firm_type) : base(firm_name, firm_type)
+        {
+
+        }
     }
     class Firma_shipment : Firma
     {
+        public Firma_shipment(string firm_name, string firm_type) : base(firm_name, firm_type)
+        {
 
+        }
     }
 }

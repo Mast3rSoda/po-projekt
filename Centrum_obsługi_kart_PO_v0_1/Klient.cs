@@ -10,7 +10,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
     class Klient
     {
         public string imie;
-        private List<Card> kolekcja_kart;
+        public List<Card> kolekcja_kart;
 
         public Klient(string imie)
         {

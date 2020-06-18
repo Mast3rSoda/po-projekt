@@ -14,6 +14,12 @@ namespace Centrum_obsługi_kart_PO_v0_1
         public string owner;
         //1-credit 2-debit 3-atm
         public long cardNumber;
+        /*public Card(string card_type,string bank_name,string owner)
+        {
+            cardType = card_type;
+            this.bank_name = bank_name;
+            this.owner = owner;
+        }*/
         public string Get_bankName()
         {
             return bank_name;

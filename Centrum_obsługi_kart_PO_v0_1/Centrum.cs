@@ -8,10 +8,10 @@ namespace Centrum_obsługi_kart_PO_v0_1
 {
     class Firm_list
     {
-        static private List<Firma> firmy;
-        static private List<Firma_store> firmy_stores;
-        static private List<Firma_service> firmy_services;
-        static private List<Firma_shipment> firmy_shipment;
+        static public List<Firma> firmy;
+        static public List<Firma_store> firmy_stores;
+        static public List<Firma_service> firmy_services;
+        static public List<Firma_shipment> firmy_shipment;
 
         static Firm_list()
         {

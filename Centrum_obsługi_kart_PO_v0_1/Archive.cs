@@ -14,6 +14,7 @@ namespace Centrum_obsługi_kart_PO_v0_1
         {
             transakcja_tekst = data+" "+karta.cardNumber+" "+kwota+" "+card_type+" "+card_owner+" "+karta.bank_name+" "+resault;
             System.IO.File.WriteAllText("archiwum_transakcji.txt", transakcja_tekst);
+            Console.WriteLine("DATA - "+data + " Numer Karty - " + karta.cardNumber + " Kwota - " + kwota + " Typ karty - " + card_type + " Właściciel karty - " + card_owner + " Nazwa Banku - " + karta.bank_name + " Rezultat - " + resault);
         }
     }
 }
